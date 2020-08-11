@@ -39,6 +39,15 @@ body {
   margin-left: 10px;
 }
 
+@media (max-width: 850px) {
+  .wrapper {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .sidebar {
   -ms-flex: 1 0 0px;
       flex: 1 0 0;
@@ -47,6 +56,40 @@ body {
 .posts {
   -ms-flex: 2 0 0px;
       flex: 2 0 0;
+}
+
+@media (max-width: 850px) {
+  .posts {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-flex-order: 2;
+        order: 2;
+  }
+}
+
+@media (max-width: 850px) {
+  .articles {
+    -ms-flex-order: 1;
+        order: 1;
+    text-align: center;
+  }
+}
+
+.articles li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.articles a {
+  text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .tags-authors {
+    -ms-flex-order: 3;
+        order: 3;
+  }
 }
 
 .sidebar, .posts {
@@ -88,11 +131,16 @@ body {
 
 /* Post */
 .post {
-  display: none;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .post.active {
-  display: block;
+  opacity: 1;
+  position: relative;
+  height: auto;
 }
 
 .post-author {
