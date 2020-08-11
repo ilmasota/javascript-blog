@@ -24,12 +24,17 @@ body {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
+  color: #051923;
 }
 
 .section-title span {
   text-transform: none;
   font-weight: 400;
-  color: #777777;
+  color: #12597c;
+}
+
+a {
+  color: #003554;
 }
 
 /* Layout */
@@ -76,9 +81,11 @@ body {
   }
 }
 
-.articles li {
-  display: inline-block;
-  margin-right: 5px;
+@media (max-width: 850px) {
+  .articles li {
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .articles a {
@@ -89,6 +96,7 @@ body {
   .tags-authors {
     -ms-flex-order: 3;
         order: 3;
+    text-align: center;
   }
 }
 
@@ -96,7 +104,7 @@ body {
   background: #fff;
   margin-right: 10px;
   padding: 40px;
-  border: 1px solid #444;
+  border: 1px solid #006494;
   border-radius: 5px;
 }
 
@@ -107,6 +115,7 @@ body {
   font-size: 104px;
   line-height: 1;
   text-align: center;
+  color: #051923;
 }
 
 /* Lists */
@@ -120,13 +129,32 @@ body {
   font-weight: bold;
 }
 
+.list a {
+  text-decoration: none;
+}
+
 .list-horizontal li {
   display: inline-block;
+}
+
+/* Tags */
+@media (max-width: 850px) {
+  .tags li {
+    display: inline-block;
+    margin-right: 10px;
+  }
 }
 
 /* Authors */
 .authors li {
   margin-bottom: 12px;
+}
+
+@media (max-width: 850px) {
+  .authors li {
+    display: inline-block;
+    margin-right: 15px;
+  }
 }
 
 /* Post */
