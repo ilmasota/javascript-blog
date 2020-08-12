@@ -37,7 +37,9 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.tags.list';
+    optTagsListSelector = '.tags.list',
+    optCloudClassCount = 5,
+    optCloudClassPrefix = 'tag-size-';
 
   const generateTitleLinks = function(customSelector = ''){
     /* remove contents of titleList */
@@ -257,6 +259,6 @@
     }
   }
 
-addClickListenersToAuthors();
+  addClickListenersToAuthors();
 
 }
