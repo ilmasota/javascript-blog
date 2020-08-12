@@ -39,7 +39,7 @@
     optArticleAuthorSelector = '.post-author',
     optTagsListSelector = '.tags.list';
 
-  function generateTitleLinks(customSelector = ''){
+  const generateTitleLinks = function(customSelector = ''){
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML='';
@@ -70,7 +70,7 @@
 
   generateTitleLinks();
 
-  function calculateTagsParams(tags){
+  const calculateTagsParams = function(tags){
     const tagsParams = {min: 999999, max: 0};
     for(let tag in tags){
       if(tags[tag] > tagsParams.max){
@@ -82,7 +82,7 @@
     return tagsParams;
   }
 
-  function generateTags(){
+  const generateTags = function(){
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
     // console.log(allTags);
@@ -144,7 +144,7 @@
 
   generateTags();
 
-  function tagClickHandler(event){
+  const tagClickHandler = function(event){
     /* prevent default action for this event */
     event.preventDefault();
     /* make new constant named "clickedElement" and give it the value of "this" */
@@ -174,7 +174,7 @@
     // console.log('[data-tags~="' + tag + '"]');
   }
 
-  function addClickListenersToTags(){
+  const addClickListenersToTags = function(){
     /* find all links to tags */
     const links = document.querySelectorAll('.post-tags a, .list.tags a');
     /* START LOOP: for each link */
@@ -187,7 +187,7 @@
 
   addClickListenersToTags();
 
-  function generateAuthors(){
+  const generateAuthors = function(){
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     /* START LOOP: for every article: */
@@ -211,7 +211,7 @@
 
   generateAuthors();
 
-  function authorClickHandler(event){
+  const authorClickHandler = function(event){
     /* prevent default action for this event */
     event.preventDefault();
     /* make new constant named "clickedElement" and give it the value of "this" */
@@ -246,7 +246,7 @@
     // console.log('[data-tags="' + author + '"]');
   }
 
-  function addClickListenersToAuthors(){
+  const addClickListenersToAuthors = function(){
     /* find all links to authors */
     const links = document.querySelectorAll('.post-author a');
     /* START LOOP: for each link */
