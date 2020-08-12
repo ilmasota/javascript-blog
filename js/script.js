@@ -70,6 +70,18 @@
 
   generateTitleLinks();
 
+  function calculateTagsParams(tags){
+    const tagsParams = {min: 999999, max: 0};
+    for(let tag in tags){
+      if(tags[tag] > tagsParams.max){
+        tagsParams.max = tags[tag];
+      } else if(tags[tag] < tagsParams.min) {
+        tagsParams.min = tags[tag];
+      }
+    }
+    return tagsParams;
+  }
+
   function generateTags(){
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
@@ -105,7 +117,6 @@
           allTags[tag] = 1;
         } else {
           allTags[tag]++;
-          console.log(allTags);
         }
       /* END LOOP: for each tag */
       }
@@ -115,7 +126,9 @@
     }
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
-
+    /* */
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
     /* [NEW] START LOOP: for each tag in allTags: */
