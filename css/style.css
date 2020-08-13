@@ -139,11 +139,44 @@ a {
 }
 
 /* Tags */
+.tags li {
+  margin-right: 5px;
+}
+
 @media (max-width: 850px) {
   .tags li {
     display: inline-block;
     margin-right: 10px;
   }
+}
+
+.tags {
+  display: inline-block;
+}
+
+.tag-size-1 {
+  font-size: 75%;
+  color: #0466c8;
+}
+
+.tag-size-2 {
+  font-size: 90%;
+  color: #0466c8;
+}
+
+.tag-size-3 {
+  font-size: 100%;
+  color: #0466c8;
+}
+
+.tag-size-4 {
+  font-size: 115%;
+  color: #0466c8;
+}
+
+.tag-size-5 {
+  font-size: 150%;
+  color: #0466c8;
 }
 
 /* Authors */
