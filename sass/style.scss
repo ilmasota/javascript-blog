@@ -5,9 +5,8 @@
 $color-light: #fff;
 $color-dark: #444;
 $color-main: #051923;
-$color-links: #003554;
+$color-links: #0466c8;
 $color-border: #006494;
-$color-tags: #0466c8;
 
 $font-logo: 'Sacramento', cursive;
 $font-header: 'Oswald', sans-serif;
@@ -48,6 +47,7 @@ body {
 
 a {
   color: $color-links;
+  text-decoration: none;
 }
 
 /* Layout */
@@ -87,10 +87,6 @@ a {
   }
 }
 
-.articles a {
-  text-decoration: none;
-}
-
 .tags-authors {
   @media (max-width: 850px) {
     order: 3;
@@ -128,10 +124,6 @@ a {
   }
 }
 
-.list a {
-  text-decoration: none;
-}
-
 .list-horizontal {
   li {
     display: inline-block;
@@ -155,27 +147,22 @@ a {
 
 .tag-size-1 {
   font-size: 75%;
-  color: $color-tags;
 }
 
 .tag-size-2 {
   font-size: 90%;
-  color: $color-tags;
 }
 
 .tag-size-3 {
   font-size: 100%;
-  color: $color-tags;
 }
 
 .tag-size-4 {
   font-size: 115%;
-  color: $color-tags;
 }
 
 .tag-size-5 {
   font-size: 150%;
-  color: $color-tags;
 }
 
 /* Authors */
@@ -193,13 +180,11 @@ a {
 /* Post */
 
 .post {
-  // display: none;
   transition: opacity 1s ease-out;
   opacity: 0;
   height: 0;
   overflow: hidden;
   &.active {
-    // display: block;
     opacity: 1;
     position: relative;
     height: auto;

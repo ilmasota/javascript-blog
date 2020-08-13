@@ -34,7 +34,8 @@ body {
 }
 
 a {
-  color: #003554;
+  color: #0466c8;
+  text-decoration: none;
 }
 
 /* Layout */
@@ -88,10 +89,6 @@ a {
   }
 }
 
-.articles a {
-  text-decoration: none;
-}
-
 @media (max-width: 850px) {
   .tags-authors {
     -ms-flex-order: 3;
@@ -129,10 +126,6 @@ a {
   font-weight: bold;
 }
 
-.list a {
-  text-decoration: none;
-}
-
 .list-horizontal li {
   display: inline-block;
   margin-right: 5px;
@@ -156,27 +149,22 @@ a {
 
 .tag-size-1 {
   font-size: 75%;
-  color: #0466c8;
 }
 
 .tag-size-2 {
   font-size: 90%;
-  color: #0466c8;
 }
 
 .tag-size-3 {
   font-size: 100%;
-  color: #0466c8;
 }
 
 .tag-size-4 {
   font-size: 115%;
-  color: #0466c8;
 }
 
 .tag-size-5 {
   font-size: 150%;
-  color: #0466c8;
 }
 
 /* Authors */

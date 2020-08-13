@@ -242,7 +242,7 @@
     /* [NEW] START LOOP: for each author in allauthors: */
     for(let author in allAuthors){
       /* [NEW] create const tagLinkHTML that's generating code of a link */
-      const authorLinkHTML = '<li><a href="#' + author + '">' + author + '(' + allAuthors[author] + ') </a></li>';
+      const authorLinkHTML = '<li><a href="#' + author + '">' + author + ' (' + allAuthors[author] + ') </a></li>';
       // console.log(allTags[tag], tagsParams);
       /* [NEW] generate code of a link and add it to allTagsHTML */
       allAuthorsHTML += authorLinkHTML;
