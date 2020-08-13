@@ -1,5 +1,11 @@
 'use strict';
 {
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-article-author').innerHTML)
+  };
+
   const opt = {
     articleSelector : '.post',
     titleSelector : '.post-title',
@@ -59,7 +65,9 @@
       /* get the title from the title element */
       const articleTitle = article.querySelector(opt.titleSelector).innerHTML;
       /* create HTML of the link */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      const linkHTMLData = {id: articleId, title: articleTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
+      // const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
       /* insert link into titleList */
       // titleList.insertAdjacentHTML('afterbegin', linkHTML);
       html = html + linkHTML;
@@ -124,7 +132,9 @@
       for (let tag of articleTagsArray) {
         // console.log(tag);
         /* generate HTML of the link */
-        const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        const linkHTMLData = {id : tag};
+        const linkHTML = templates.tagLink(linkHTMLData);
+        // const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
         // console.log(linkHTML);
         /* add generated code to html variable */
         html = html + linkHTML;
@@ -230,7 +240,9 @@
       }
       // console.log(allAuthors);
       /* generate HTML of the link */
-      const linkHTML = '<a href="#' + articleAuthor + '">' + articleAuthor + '</a>';
+      const linkHTMLData = {id: articleAuthor};
+      const linkHTML = templates.authorLink(linkHTMLData);
+      // const linkHTML = '<a href="#' + articleAuthor + '">' + articleAuthor + '</a>';
       /* add generated code to html variable */
       html = html + linkHTML;
       /* insert HTML of all the links into the tags wrapper */
