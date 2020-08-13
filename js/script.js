@@ -267,7 +267,7 @@
     const author = href.replace('#', '');
     // console.log(author);
     /* find all authors links with class active */
-    const activeAuthorLinks = document.querySelectorAll('.post-author a.active');
+    const activeAuthorLinks = document.querySelectorAll('a.active[href^="#"]');
     // console.log(activeAuthorLinks);
     /* START LOOP: for each active author link */
     for (let activeAuthorLink of activeAuthorLinks) {
