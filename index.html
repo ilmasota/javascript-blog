@@ -169,6 +169,12 @@
         </main>
       </div>
     </div>
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+      {{#each tags}}
+      <a class="{{ className }}" href="#tag-{{ tag }}">{{tag}}</a>
+      {{/each}}
+    </script>
+    <!-- <a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + ' </a>' -->
     <script id="template-article-link" type="text/x-handlebars-template">
       <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
     </script>
