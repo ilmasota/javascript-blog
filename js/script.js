@@ -37,7 +37,7 @@
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author',
-    optTagsListSelector = '.tags.list',
+    // optTagsListSelector = '.tags.list',
     optCloudClassCount = 5,
     optCloudClassPrefix = 'tag-size-';
 
@@ -68,7 +68,7 @@
     for(let link of links){
       link.addEventListener('click', titleClickHandler);
     }
-  }
+  };
 
   generateTitleLinks();
 
@@ -82,7 +82,20 @@
       }
     }
     return tagsParams;
-  }
+  };
+
+  const calculateTagClass = function(count, params){ //2, {min:1, max:5}
+    /* create a const that will check difference between params minimum and count */
+    const normalizedCount = count - params.min;
+    /* create a const that will check difference between minimum and maximum of params */
+    const normalizedMax = params.max - params.min;
+    /* create a cons percentage of normalizedCount/normalizedMax  */
+    const percentage = normalizedCount / normalizedMax;
+    /* create a const that will calculate number for count (class ending) */
+    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+    /* return whole class name */
+    return optCloudClassPrefix + classNumber;
+  };
 
   const generateTags = function(){
     /* [NEW] create a new variable allTags with an empty object */
@@ -135,14 +148,17 @@
     let allTagsHTML = '';
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
+      /* [NEW] create const tagLinkHTML that's generating code of a link */
+      const tagLinkHTML = '<a class="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '(' + allTags[tag] + ') </a>';
+      console.log(allTags[tag], tagsParams);
       /* [NEW] generate code of a link and add it to allTagsHTML */
-      allTagsHTML += '<a href="#tag-' + tag + '">' + tag + '(' + allTags[tag] + ') </a>';
+      allTagsHTML += tagLinkHTML;
       // console.log(allTagsHTML);
     }
     /* [NEW] END LOOP: for each tag in allTags: */
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
-  }
+  };
 
   generateTags();
 
@@ -174,7 +190,7 @@
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-tags~="' + tag + '"]');
     // console.log('[data-tags~="' + tag + '"]');
-  }
+  };
 
   const addClickListenersToTags = function(){
     /* find all links to tags */
@@ -185,7 +201,7 @@
       link.addEventListener('click', tagClickHandler);
     /* END LOOP: for each link */
     }
-  }
+  };
 
   addClickListenersToTags();
 
@@ -209,7 +225,7 @@
       authorWrapper.innerHTML = html;
       /* END LOOP: for every article: */
     }
-  }
+  };
 
   generateAuthors();
 
@@ -246,7 +262,7 @@
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-author="' + author + '"]');
     // console.log('[data-tags="' + author + '"]');
-  }
+  };
 
   const addClickListenersToAuthors = function(){
     /* find all links to authors */
@@ -257,8 +273,7 @@
       link.addEventListener('click', authorClickHandler);
     /* END LOOP: for each link */
     }
-  }
+  };
 
   addClickListenersToAuthors();
-
 }
